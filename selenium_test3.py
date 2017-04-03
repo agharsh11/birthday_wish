@@ -6,11 +6,11 @@ driver = webdriver.Chrome('/home/harsh/Desktop/chromedriver')  # Optional argume
 driver.get('https://www.facebook.com/');
 time.sleep(1) 
 search_box = driver.find_element_by_name('email')
-search_box.send_keys('Email')
+search_box.send_keys('daal_lena@gmail.com')
 #search_box.submit()
 #time.sleep(5)
 search_box = driver.find_element_by_name('pass')
-search_box.send_keys('password')
+search_box.send_keys('daal lena')
 search_box.submit()
 #src=requests.get("").text
 time.sleep(5)
@@ -52,6 +52,7 @@ soup1=soup.find_all('div',class_="_3i9")[0]
 soup2=soup1.find_all('a',class_="pvs _39g5")
 #_50f8 _50f4
 print "2"
+k=0
 for i in soup2:
 	print "1"
 	soup3=i.find_all('div',class_="_50f8 _50f4")[0]
@@ -63,7 +64,22 @@ for i in soup2:
 print k
 link=k
 print "done"
-driver.get(link);
+driver.get(link)
+print link
+time.sleep(15) 
+try:
+	print dir(search_box)
+	search_box=driver.find_elements_by_xpath('//*[@id="js_1"]/form')
+	print "rolling today"
+#[@id="js_23"]/div[1]/div/div[1]/div[2]/div/div/div/div/div[2]/div/div/div/div
+except:
+	pass
+
+print dir(search_box)
+#search_box.click()
+#search_box.send_keys('testing')
+#search_box.submit()
+
 #use the #collection_wrapper_2356318349 to uniquely pinpoint birthdays
 time.sleep(100) # Let the user actually see something!
 driver.quit()
